@@ -1,0 +1,27 @@
+{
+  "name": "webpack-hot-module-reload-with-context-example",
+  "version": "1.0.0",
+  "description": "Shows how to use hmr with require.context",
+  "main": "hmr_example.js",
+  "dependencies": {
+    "webpack": "^1.12.14",
+    "webpack-dev-server": "^1.14.1"
+  },
+  "devDependencies": {
+    "webpack": "^1.12.14",
+    "webpack-dev-server": "^1.14.1"
+  },
+  "scripts": {
+    "start": "webpack-dev-server hmr_example.js --hot --inline"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jauco/webpack-hot-module-reload-with-context-example.git"
+  },
+  "author": "Jauco Noordzij",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jauco/webpack-hot-module-reload-with-context-example/issues"
+  },
+  "homepage": "https://github.com/jauco/webpack-hot-module-reload-with-context-example#readme"
+}
