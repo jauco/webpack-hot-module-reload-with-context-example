@@ -6,7 +6,7 @@ context.keys().forEach(function (key) {
   modules[key] = module;
   customReloadLogic(key, module, false);
 })
-
+module.exports.modules = modules;
 if (module.hot) {
   module.hot.accept(context.id, function () {
     //You can't use context here. You _need_ to call require.context again to
