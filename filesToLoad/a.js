@@ -1,2 +1,2 @@
 console.log("a");
-module.exports.foo = "change me!"
+module.exports.foo = "change me!s"

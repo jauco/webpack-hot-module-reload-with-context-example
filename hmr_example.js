@@ -1,11 +1,7 @@
 document.write("Open the javascript console!");
 var context = require.context("./filesToLoad", false, /\.js$/);
 var modules = {};
-context.keys().forEach(function (key) {
-  var module = context(key);
-  modules[key] = module;
-  customReloadLogic(key, module, false);
-})
+subscriptions = [];
 module.exports.modules = modules;
 if (module.hot) {
   module.hot.accept(context.id, function () {
@@ -25,11 +21,17 @@ if (module.hot) {
       });
     changedModules.forEach(function (module) {
       modules[module[0]] = module[1];
-      customReloadLogic(module[0], module[1], true);
+      subscriptions.forEach(function (f) { f(module[0], module[1], true);})
+      customReloadLogic();
     });
   });
 }
 
-function customReloadLogic(name, module, isReload) {
-  console.log("module " + name + (isReload ? " re" : " ") + "loaded");
+module.exports.subscribe = function (f) {
+  context.keys().forEach(function (key) {
+    var module = context(key);
+    modules[key] = module;
+    f(key, module, false);
+  })
+  subscriptions.push(f);
 }

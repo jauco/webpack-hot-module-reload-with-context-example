@@ -1,8 +1,7 @@
-var modules = require("./hmr_example").modules;
+var hmr = require("./hmr_example");
 
-function printModuleContents() {
-    console.log(JSON.stringify(modules));
+function printModuleContents(name, module, isReload) {
+    console.log("My subscription ", arguments);
 }
 
-printModuleContents();
-window.setInterval(function () { printModuleContents(); }, 2000);
+hmr.subscribe(printModuleContents);
