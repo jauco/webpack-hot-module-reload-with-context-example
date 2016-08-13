@@ -12,7 +12,7 @@
     "webpack-dev-server": "^1.14.1"
   },
   "scripts": {
-    "start": "webpack-dev-server hmr_example.js --hot --inline"
+    "start": "webpack-dev-server entry.js --hot --inline"
   },
   "repository": {
     "type": "git",
